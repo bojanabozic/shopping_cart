@@ -49,7 +49,9 @@ def menu():
             dictionary_of_lists[new_list] = []
         elif user_choice == 4:
             which_list = raw_input("what list would you like to add items to?")
-            which_item = raw_input("what item would you like to add?")
+            which_item = raw_input("please write the items you would like to add, separated by a comma:")
+            if "," in which_item:
+                string_parser(which_item)
             add_to_list(which_list, which_item)
         elif user_choice == 5:
             pass
@@ -57,6 +59,10 @@ def menu():
             pass
         else:
             print "You did not select one of the provided options. Please select a number from 1-7. "
+
+def string_parser (item):
+    item.split(", ")
+    return item 
 
 def add_to_list(list_key, item):
     this_list = dictionary_of_lists[list_key]
